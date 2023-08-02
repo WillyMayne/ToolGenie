@@ -1,0 +1,110 @@
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+<script src="plugins/popper.js/dist/umd/popper.min.js"></script>
+<script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+<script src="plugins/screenfull/dist/screenfull.js"></script>
+<script src="plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/jvectormap/jquery-jvectormap.min.js"></script>
+<script src="plugins/moment/moment.js"></script>
+<script src="plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="plugins/d3/dist/d3.min.js"></script>
+<script src="plugins/c3/c3.min.js"></script>
+<script src="js/tables.js"></script>
+<script src="js/widgets.js"></script>
+<script src="js/charts.js"></script>
+<script src="dist/js/theme.min.js"></script>
+<script src="js/form-picker.js"></script>
+<script src="js/sweetalert2.js"></script>
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='https://www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+</script>
+
+<script>
+    const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener("mouseenter", Swal.stopTimer);
+                toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+        });
+</script>
+
+<script>
+    window.onload = function () {
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title: {
+                text: "Jobs - August"
+            },
+            axisX: {
+                valueFormatString: "DD MMM",
+                crosshair: {
+                    enabled: true,
+                    snapToDataPoint: true
+                }
+            },
+            axisY: {
+                title: "No. of jobs",
+                valueFormatString: "##0",
+                crosshair: {
+                    enabled: true,
+                    snapToDataPoint: true,
+                    labelFormatter: function (e) {
+                        return "$" + CanvasJS.formatNumber(e.value, "##0.00");
+                    }
+                }
+            },
+            data: [{
+                type: "area",
+                xValueFormatString: "DD MMM",
+                yValueFormatString: "$##0.00",
+                dataPoints: [
+                    { x: new Date(2016, 07, 01), y: 76.727997 },
+                    { x: new Date(2016, 07, 02), y: 75.459999 },
+                    { x: new Date(2016, 07, 03), y: 76.011002 },
+                    { x: new Date(2016, 07, 04), y: 75.751999 },
+                    { x: new Date(2016, 07, 05), y: 77.500000 },
+                    { x: new Date(2016, 07, 08), y: 77.436996 },
+                    { x: new Date(2016, 07, 09), y: 79.650002 },
+                    { x: new Date(2016, 07, 10), y: 79.750999 },
+                    { x: new Date(2016, 07, 11), y: 80.169998 },
+                    { x: new Date(2016, 07, 12), y: 79.570000 },
+                    { x: new Date(2016, 07, 15), y: 80.699997 },
+                    { x: new Date(2016, 07, 16), y: 79.686996 },
+                    { x: new Date(2016, 07, 17), y: 78.996002 },
+                    { x: new Date(2016, 07, 18), y: 78.899002 },
+                    { x: new Date(2016, 07, 19), y: 77.127998 },
+                    { x: new Date(2016, 07, 22), y: 76.759003 },
+                    { x: new Date(2016, 07, 23), y: 77.480003 },
+                    { x: new Date(2016, 07, 24), y: 77.623001 },
+                    { x: new Date(2016, 07, 25), y: 76.408997 },
+                    { x: new Date(2016, 07, 26), y: 76.041000 },
+                    { x: new Date(2016, 07, 29), y: 76.778999 },
+                    { x: new Date(2016, 07, 30), y: 78.654999 },
+                    { x: new Date(2016, 07, 31), y: 77.667000 }
+                ]
+            }]
+        });
+        chart.render();
+
+    }
+</script>

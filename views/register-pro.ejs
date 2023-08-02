@@ -1,0 +1,156 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<%- include( 'partials/head.ejs' ) %>
+
+
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="auth-wrapper">
+            <div class="container-fluid h-100">
+                <div class="row flex-row h-100 bg-white">
+                    <div class="col-xl-8 col-lg-6 col-md-5 p-0 d-md-block d-lg-block d-sm-none d-none">
+                        <div class="lavalite-bg" style="background-image: url('img/auth/register-bg.jpg')">
+                            <div class="lavalite-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-7 my-auto p-0">
+                        <div class="authentication-form mx-auto">
+                            <div class="logo-centered">
+                                <a href="#!"><img src="src/img/brand1.svg" alt=""></a>
+                            </div>
+                            <div class="form-head mb-5">
+                                <h2>Get Jobs</h2>
+                                <p>Over 30,000+ leads on TaskGenie per day.</p>
+                            </div>
+
+                            <form action="/register" method="post">
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Full Name" name="name"
+                                                required>
+                                            <i class="ik ik-user"></i>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email" name="email"
+                                                required>
+                                            <i class="ik ik-mail"></i>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <input type="tel" class="form-control" placeholder="Telephone number"
+                                                name="telephone" required>
+                                            <i class="ik ik-phone"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Location"
+                                                name="location" required>
+                                            <i class="ik ik-map-pin"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <select id="specialty" name="specialty" class="form-control" required>
+                                                <option value="" class="custom-radio" disabled default
+                                                    selected>Service </option>
+
+                                                <% categories.forEach(function(category,index){ %>
+                                                    <option value="<%= category.name %>" class="custom-radio">
+                                                        <%= category.name %>
+                                                    </option>
+                                                    <% }); %>
+
+                                            </select>
+
+                                            <i class="dropbtn ik ik-briefcase"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" placeholder="Years of Experience"
+                                                name="experience" >
+                                            <i class="ik ik-tag"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password" name="password"
+                                        >
+                                    <i class="ik ik-lock"></i>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Confirm Password"
+                                        name="confirmPassword" required>
+                                </div>
+                                <input type="hidden" name="userType" value="pro">
+                                <!-- <div class="row mt-5">
+                                    <div class="col-12 text-left">
+                                        <label class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="item_checkbox"
+                                                name="item_checkbox" value="option1">
+                                            <span class="custom-control-label">&nbsp;I Accept <a href="#">Terms and
+                                                    Conditions</a></span>
+                                        </label>
+                                    </div>
+                                </div> -->
+                                <div class="sign-btn text-center">
+                                    <button class="btn btn-theme">Create Account</button>
+                                </div>
+                            </form>
+                            <div class="register">
+                                <p>Already have an account? <a href="/login" class="text-primary"><u>Sign In</u></a>
+                                </p>
+                            </div>
+                            <div class="register">
+                                <p>Not a Pro? <a href="/register" class="text-underline text-primary"><u>Join as a
+                                            customer</u></a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <script>
+       function dropdownfunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script> -->
+        <%- include( 'partials/scripts.ejs' ) %>
+
+    </body>
+
+</html>

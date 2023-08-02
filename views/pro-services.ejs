@@ -1,0 +1,128 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<%- include( 'partials/head.ejs' ) %>
+
+
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="wrapper">
+
+            <%- include( 'partials/header.ejs' ) %>
+
+
+                <div class="page-wrap">
+                    <%- include( 'partials/pro-sidebar.ejs' ) %>
+
+                        <div class="main-content">
+                            <div class="container-fluid">
+                                <div>
+                                    <h1>Services</h1>
+                                </div>
+                                <div class="row my-2">
+                                    <div class="col-12">
+                                        <div class=" my-3 btn btn-primary" data-toggle="modal"
+                                            data-target="#addServiceModal" id="openAddServiceModal">+ Add Service</div>
+
+                                        <div class="card">
+                                            <div class="card-header d-block">
+                                                <h3>Created services you offer</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="dt-responsive">
+                                                    <table id="simpletable" class="table table-striped table-bordered nowrap">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Title</th>
+                                                                <th>Description</th>
+                                                                <th>Category</th>
+                                                                <th>Location</th>
+                                                                <th>Price (per hour)</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% services.forEach(function(service,index){ %>
+                                                                <tr>
+                                                                    <td>
+                                                                        <%= service.title %>
+                                                                    </td>
+                                                                    <td>
+                                                                        <%= service.description %>
+                                                                    </td>
+                                                                    <td>
+                                                                        <%= service.category.name %>
+                                                                    </td>
+                                                                    <td>
+                                                                        <%= service.location %>
+                                                                    </td>
+                                                                    <td>
+                                                                        <%= service.price %>
+                                                                    </td>
+                                                                </tr>
+                                                                <% }) %>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+        </div>
+
+
+        <div class="modal fade" id="addServiceModal" tabindex="-1" role="dialog"
+            aria-labelledby="addServiceCenterModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addServiceModalLable">Add service</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="forms-sample">
+                            <div class="form-group">
+                                <label for="" class="text-danger">Kindly ensure that the service added matches your
+                                    specialty</label>
+                                <label for="">Your specialty is: <b>
+                                        <%= userCategory %>
+                                    </b></label>
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceTitle">Title</label>
+                                <input type="text" class="form-control" id="serviceTitle">
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceDescription">Description</label>
+                                <input type="text" class="form-control" id="serviceDescription">
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceLocation">City</label>
+                                <input type="text" class="form-control" id="serviceLocation" placeholder="Accra">
+                            </div>
+                            <div class="form-group">
+                                <label for="servicePrice">Price</label>
+                                <input type="number" class="form-control" id="servicePrice" placeholder="...">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="addService">Add Service</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include( 'partials/appsmodal.ejs' ) %>
+            <%- include( 'partials/scripts.ejs' ) %>
+                <%- include( 'partials/addService.ejs' ) %>
+    </body>
+
+</html>

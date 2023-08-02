@@ -1,0 +1,49 @@
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script>
+    var searchTerm
+    $(document).ready(function () {
+        $("#searchOption").css("visibility", "hidden")
+        $("#getSteps").css("cursor", "pointer")
+        $("#getPro").css("cursor", "pointer")
+    })
+
+    $("#searchTask").on("click", function () {
+        searchTerm = $("#searchInput").val();
+        if (searchTerm == "") {
+            alert('Please enter a task to find steps for')
+        } else {
+            $("#searchOption").css("visibility", "visible")
+        }
+    })
+
+    $("#getSteps").on("click", function () {
+        $.ajax({
+            method: "post",
+            url: "/get-steps",
+            data: { message: searchTerm },
+            success: function (result) {
+                $("#stepsModal").modal("show");
+                // Render the Markdown content using marked library
+                const htmlContent = marked.parse(result.message);
+
+                // Set the HTML content in the modal
+                //document.getElementById('stepsBody').innerHTML = htmlContent;
+                $('#stepsBody').append(htmlContent);
+                $(".closeStepsModal").on("click", function(){
+                    location.reload()
+                })
+            },
+            error: function (error) {
+                alert("There was an error processing your request")
+                setTimeout(()=>{
+                    location.reload()
+                }, 5000)
+            }
+        })
+    });
+
+    $("#getPro").on("click", function(){
+        location.href = "/categories"
+    })
+</script>

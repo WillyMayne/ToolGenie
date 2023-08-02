@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<%- include( 'partials/head.ejs' ) %>
+    <style>
+
+    </style>
+
+
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="wrapper">
+
+            <%- include( 'partials/header.ejs' ) %>
+
+
+                <div class="page-wrap">
+                    <%- include( 'partials/sidebar.ejs' ) %>
+
+                        <div class="main-content">
+                            <div class="container-fluid">
+
+                                <div class="center_search mt-4 mb-4">
+                                    <div class="d-flex justify-content-center mb-5">
+                                        <div>What would you like to do?(Please be as specific as possible)</div>
+                                    </div>
+
+                                    <div class="form-inline justify-content-center">
+                                        <input type="text" class="form-control form-control-lg mb-2 mr-sm-2 w-25"
+                                            id="searchInput" placeholder="I would like to mow my grass">
+                                        <button type="" class="btn btn-primary mb-2" id="searchTask">Search</button>
+                                    </div>
+                                </div>
+
+                                <div class="mt-5" id="searchOption">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-md-6">
+                                            <div class="card social-card" id="getSteps">
+                                                <div class="card-body text-center">
+                                                    <h2 class="text-facebook mb-20"><i class="ik ik-cloud"></i></h2>
+                                                    <h3 class="text-facebook fw-700">Get steps to perform task</h3>
+                                                    <p>...</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-md-6">
+                                            <div class="card social-card" id="getPro">
+                                                <div class="card-body text-center">
+                                                    <h2 class="text-facebook mb-20"><i
+                                                            class="ik ik-arrow-right-circle"></i></h2>
+                                                    <h3 class="text-facebook fw-700">Find a pro</h3>
+                                                    <p>...</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                </div>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="stepsModal" tabindex="-1" role="dialog" aria-labelledby="stepsModalTitle"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="stepsModalTitle">Steps to perform your task</h5>
+                        <button type="button" class="close closeStepsModal" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="stepsBody">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary closeStepsModal"
+                            data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <%- include( 'partials/appsmodal.ejs' ) %>
+
+
+            <%- include( 'partials/scripts.ejs' ) %>
+                <%- include( 'partials/customer-dashboard.ejs' ) %>
+
+    </body>
+
+</html>

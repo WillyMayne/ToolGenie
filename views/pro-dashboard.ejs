@@ -1,0 +1,212 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<%- include( 'partials/head.ejs' ) %>
+    <style>
+
+    </style>
+
+
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="wrapper">
+
+            <%- include( 'partials/header.ejs' ) %>
+
+
+                <div class="page-wrap">
+                    <%- include( 'partials/pro-sidebar.ejs' ) %>
+
+                        <div class="main-content">
+                            <div class="container-fluid">
+                                <div>
+                                    <h1>Summary</h1>
+                                </div>
+
+                                <div class="row ">
+                                    <!-- page statustic chart start -->
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card card-red text-white">
+                                            <div class="card-block">
+                                                <div class="row align-items-center">
+                                                    <div class="col-8">
+                                                        <h4 class="mb-0">2,563</h4>
+                                                        <p class="mb-0">Visits</p>
+                                                    </div>
+                                                    <div class="col-4 text-right">
+                                                        <i class="ik ik-user f-30"></i>
+                                                    </div>
+                                                </div>
+                                                <div id="Widget-line-chart1" class="chart-line chart-shadow"
+                                                    style="width:100%;height:75px"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card card-blue text-white">
+                                            <div class="card-block">
+                                                <div class="row align-items-center">
+                                                    <div class="col-8">
+                                                        <h4 class="mb-0">3,612</h4>
+                                                        <p class="mb-0">Orders</p>
+                                                    </div>
+                                                    <div class="col-4 text-right">
+                                                        <i class="ik ik-shopping-cart f-30"></i>
+                                                    </div>
+                                                </div>
+                                                <div id="Widget-line-chart2" class="chart-line chart-shadow"
+                                                    style="width:100%;height:75px"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card card-green text-white">
+                                            <div class="card-block">
+                                                <div class="row align-items-center">
+                                                    <div class="col-8">
+                                                        <h4 class="mb-0">8,654</h4>
+                                                        <p class="mb-0">Likes</p>
+                                                    </div>
+                                                    <div class="col-4 text-right">
+                                                        <i class="ik ik-thumbs-up f-30"></i>
+                                                    </div>
+                                                </div>
+                                                <div id="Widget-line-chart3" class="chart-line chart-shadow"
+                                                    style="width:100%;height:75px"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card card-yellow text-white">
+                                            <div class="card-block">
+                                                <div class="row align-items-center">
+                                                    <div class="col-8">
+                                                        <h4 class="mb-0">3,550</h4>
+                                                        <p class="mb-0">Reviews</p>
+                                                    </div>
+                                                    <div class="col-4 text-right">
+                                                        <i class="ik ik-volume-2 f-30"></i>
+                                                    </div>
+                                                </div>
+                                                <div id="Widget-line-chart4" class="chart-line chart-shadow"
+                                                    style="width:100%;height:75px"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-5">
+                                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                                </div>
+                                <div class="row my-5">
+                                    <div class="col-12">
+                                        <div class="card">
+
+                                            <div class="card-body">
+                                                <table id="data_table" class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Id</th>
+                                                            <th class="nosort">Avatar</th>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                            <th class="nosort">&nbsp;</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>001</td>
+                                                            <td><img src="../img/users/1.jpg" class="table-user-thumb"
+                                                                    alt=""></td>
+                                                            <td>Erich Heaney</td>
+                                                            <td>erich@example.com</td>
+                                                            <td>
+                                                                <div class="table-actions">
+                                                                    <a href="#"><i class="ik ik-eye"></i></a>
+                                                                    <a href="#"><i class="ik ik-edit-2"></i></a>
+                                                                    <a href="#"><i class="ik ik-trash-2"></i></a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>002</td>
+                                                            <td><img src="../img/users/2.jpg" class="table-user-thumb"
+                                                                    alt=""></td>
+                                                            <td>Abraham Douglas</td>
+                                                            <td>jgraham@example.com</td>
+                                                            <td>
+                                                                <div class="table-actions">
+                                                                    <a href="#"><i class="ik ik-eye"></i></a>
+                                                                    <a href="#"><i class="ik ik-edit-2"></i></a>
+                                                                    <a href="#"><i class="ik ik-trash-2"></i></a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>003</td>
+                                                            <td><img src="../img/users/3.jpg" class="table-user-thumb"
+                                                                    alt=""></td>
+                                                            <td>Roderick Simonis</td>
+                                                            <td>grant.simonis@example.com</td>
+                                                            <td>
+                                                                <div class="table-actions">
+                                                                    <a href="#"><i class="ik ik-eye"></i></a>
+                                                                    <a href="#"><i class="ik ik-edit-2"></i></a>
+                                                                    <a href="#"><i class="ik ik-trash-2"></i></a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>004</td>
+                                                            <td><img src="../img/users/4.jpg" class="table-user-thumb"
+                                                                    alt=""></td>
+                                                            <td>Christopher Henry</td>
+                                                            <td>henry.chris@example.com</td>
+                                                            <td>
+                                                                <div class="table-actions">
+                                                                    <a href="#"><i class="ik ik-eye"></i></a>
+                                                                    <a href="#"><i class="ik ik-edit-2"></i></a>
+                                                                    <a href="#"><i class="ik ik-trash-2"></i></a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>005</td>
+                                                            <td><img src="../img/users/5.jpg" class="table-user-thumb"
+                                                                    alt=""></td>
+                                                            <td>Sonia Wilkinson</td>
+                                                            <td>boyle.aglea@example.com</td>
+                                                            <td>
+                                                                <div class="table-actions">
+                                                                    <a href="#"><i class="ik ik-eye"></i></a>
+                                                                    <a href="#"><i class="ik ik-edit-2"></i></a>
+                                                                    <a href="#"><i class="ik ik-trash-2"></i></a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                </div>
+        </div>
+
+
+
+
+        <%- include( 'partials/appsmodal.ejs' ) %>
+
+
+            <%- include( 'partials/scripts.ejs' ) %>
+
+    </body>
+
+</html>

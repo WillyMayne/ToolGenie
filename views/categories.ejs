@@ -1,0 +1,77 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<%- include( 'partials/head.ejs' ) %>
+    <style>
+
+    </style>
+
+
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="wrapper">
+
+            <%- include( 'partials/header.ejs' ) %>
+
+
+                <div class="page-wrap">
+                    <%- include( 'partials/sidebar.ejs' ) %>
+
+                        <div class="main-content">
+                            <div class="container-fluid">
+
+                                <!-- <div class="center_search mt-4 mb-4">
+                                    <form class="form-inline justify-content-center">
+                                        <label class="sr-only" for="inlineFormInputName2">Search</label>
+                                        <input type="text" class="form-control form-control-lg mb-2 mr-sm-2 w-25" id=""
+                                            placeholder="I would like to mow my grass">
+                                        <button type="submit" class="btn btn-primary mb-2">Search</button>
+                                    </form>
+                                </div> -->
+
+                                <div class="row clearfix">
+
+                                    <% categories.forEach(function(category,index){ %>
+
+                                        <div class="col-lg-2 col-md-4 col-6">
+                                            <div class="widget social-widget">
+                                                <a href="/services?category=<%= category.name %>">
+                                                    <div class="widget-body">
+                                                        <div class="icon"><img src="<%= category.image %>" alt=""></div>
+                                                        <div class="content">
+                                                            <div class="h5">
+                                                                <%= category.name %>
+                                                            </div>
+                                                            <div class="number">
+                                                                <%=category.description %>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <% }) %>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                </div>
+        </div>
+
+
+
+
+        <%- include( 'partials/appsmodal.ejs' ) %>
+
+
+            <%- include( 'partials/scripts.ejs' ) %>
+
+    </body>
+
+</html>

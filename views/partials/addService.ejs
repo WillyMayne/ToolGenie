@@ -1,0 +1,44 @@
+<script>
+    showSuccessToast = function (message) {
+        'use strict';
+        $.toast({
+            heading: 'Success',
+            text: message,
+            showHideTransition: 'slide',
+            icon: 'success',
+            loaderBg: '#f96868',
+            position: 'top-right'
+        })
+    };
+
+    $("#addService").on("click", function () {
+        const serviceTitle = $("#serviceTitle").val(), serviceDescription = $("#serviceDescription").val(), serviceLocation = $("#serviceLocation").val(), servicePrice = $("#servicePrice").val();
+        $.ajax({
+            url: "/add-service",
+            type: 'POST',
+            data: {
+                serviceTitle: serviceTitle,
+                serviceDescription: serviceDescription,
+                serviceLocation: serviceLocation,
+                servicePrice: servicePrice,
+            },
+            success: function (data) {
+                if (data.status == "success") {
+                    Toast.fire({
+                        icon: "success",
+                        title: data.message,
+                    });
+
+                    $("#addServiceModal").modal("hide");
+                    setTimeout(() => {
+                        location.reload()
+                    }, 5000)
+                }
+                console.log("Data received from server:", data);
+            },
+            error: function () { alert('Error while booking service.'); },
+
+        })
+    })
+
+</script>

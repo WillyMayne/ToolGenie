@@ -1,0 +1,130 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<%- include( 'partials/head.ejs' ) %>
+
+
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="wrapper">
+
+            <%- include( 'partials/header.ejs' ) %>
+
+
+                <div class="page-wrap">
+                    <%- include( 'partials/pro-sidebar.ejs' ) %>
+
+                        <div class="main-content">
+                            <div class="container-fluid">
+                                <div class="row clearfix">
+
+                                    <% services.forEach(function(service,index){ %>
+
+                                        <div class="col-md-4">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="profile-pic mb-20">
+                                                        <img src="../img/user.jpg" width="150" class="rounded-circle"
+                                                            alt="user">
+                                                        <h4 class="mt-20 mb-0">
+                                                            <%= service.provider.name %>
+                                                        </h4>
+                                                        <a href="#">
+                                                            <u>View profile</u>
+                                                        </a>
+                                                    </div>
+                                                    <div class="badge badge-pill badge-dark">
+                                                        <%= service.title %>
+                                                    </div>
+                                                    <div class="badge badge-pill badge-dark">
+                                                        <%= service.location %>
+                                                    </div>
+                                                    <p class="p-3">
+                                                        Rate GH₵<%= service.price %>/hr
+                                                    </p>
+                                                    <p>
+                                                        <%= service.category.description %>
+                                                    </p>
+                                                </div>
+                                                <div class="p-4 border-top mt-15">
+                                                    <div class="row text-center">
+                                                        <div class="col-6 border-right">
+                                                            <a href="#"
+                                                                class="link d-flex align-items-center justify-content-center"><i
+                                                                    class="ik ik-message-square f-20 mr-5"></i>Message</a>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <a href="#"
+                                                                class="link d-flex align-items-center justify-content-center"
+                                                                data-toggle="modal" data-target="#bookServiceModal" id="openBookingModal" data-serviceid="<%= service._id %>"><i
+                                                                    class="ik ik-box f-20 mr-5"></i>Book</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <% }) %>
+
+                                </div>
+                            </div>
+                        </div>
+                </div>
+        </div>
+
+        <div class="modal fade" id="bookServiceModal" tabindex="-1" role="dialog"
+            aria-labelledby="bookServiceCenterModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bookServiceModalLable">Book</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="forms-sample">
+                            <div class="form-group">
+                                <label for="bookingDate">Date</label>
+                                <input type="date" class="form-control" id="bookingDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="bookingTime">Time</label>
+                                <input type="time" class="form-control" id="bookingTime">
+                            </div>
+                            <div class="form-group">
+                                <label for="durationInHours">Duration(in hours)</label>
+                                <input type="number" class="form-control" id="durationInHours">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" id="address"
+                                    placeholder="23 Otublohum Street, Accra">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactNumber">Contact Number</label>
+                                <input type="number" class="form-control" id="contactNumber" placeholder="0558180949">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="notes">Notes</label>
+                            </div>
+                            <textarea id="additionalNotes" name="additionalNotes" rows="5" cols="40"></textarea>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="bookService">Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include( 'partials/appsmodal.ejs' ) %>
+            <%- include( 'partials/scripts.ejs' ) %>
+                <%- include( 'partials/booking.ejs' ) %>
+    </body>
+
+</html>
+

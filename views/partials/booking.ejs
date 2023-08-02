@@ -1,0 +1,47 @@
+<script>
+    showSuccessToast = function (message) {
+        'use strict';
+        $.toast({
+            heading: 'Success',
+            text: message,
+            showHideTransition: 'slide',
+            icon: 'success',
+            loaderBg: '#f96868',
+            position: 'top-right'
+        })
+    };
+
+    $("#bookService").on("click", function () {
+        const bookingDate = $("#bookingDate").val(), bookingTime = $("#bookingTime").val(), durationInHours = $("#durationInHours").val(), address = $("#address").val(), contactNumber = $("#contactNumber").val(), additionalNotes = $("#additionalNotes").val(), serviceId = $("#openBookingModal").data("serviceid");
+        $.ajax({
+            url: "/book-service",
+            type: 'POST',
+            data: {
+                serviceId: serviceId,
+                bookingDate: bookingDate,
+                bookingTime: bookingTime,
+                durationInHours: durationInHours,
+                address: address,
+                contactNumber: contactNumber,
+                additionalNotes: additionalNotes
+            },
+            success: function (data) {
+                if (data.status == "success") {
+                    Toast.fire({
+                        icon: "success",
+                        title: data.message,
+                    });
+
+                    $("#bookServiceModal").modal("hide");
+                    setTimeout(() => {
+                        location.reload()
+                    }, 5000)
+                }
+                console.log("Data received from server:", data);
+            },
+            error: function () { alert('Error while booking service.'); },
+
+        })
+    })
+
+</script>
